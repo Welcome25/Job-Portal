@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Job Listings{% endblock %}
+
+{% block content %}
+<h2>Job Listings</h2>
+<form method="get" class="mb-4">
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" name="q" class="form-control" placeholder="Search jobs..." value="{{ query }}">
+        </div>
+        <div class="col-md-2">
+            <select name="employment_type" class="form-select">
+                <option value="">All Types</option>
+                <option value="FT" {% if employment_type == 'FT' %}selected{% endif %}>Full-time</option>
+                <option value="PT" {% if employment_type == 'PT' %}selected{% endif %}>Part-time</option>
+                <option value="CT" {% if employment_type == 'CT' %}selected{% endif %}>Contract</option>
+                <option value="IN" {% if employment_type == 'IN' %}selected{% endif %}>Internship</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <input type="text" name="location" class="form-control" placeholder="Location" value="{{ location }}">
+        </div>
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</form>
+{% for job in jobs %}
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">{{ job.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ job.company }} - {{ job.location }}</h6>
+        <p class="card-text">{{ job.description|truncatechars:200 }}</p>
+        <p class="card-text"><small class="text-muted">{{ job.employment_type }} | Posted {{ job.posted_at|date:"M d, Y" }}</small></p>
+        <a href="{% url 'jobs:job_detail' job.pk %}" class="btn btn-primary">View Details</a>
+    </div>
+</div>
+{% empty %}
+<p>No jobs found.</p>
+{% endfor %}
+{% endblock %}

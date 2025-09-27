@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Application Details{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h2 class="card-title">{{ application.job.title }}</h2>
+        <p class="card-text">{{ application.job.company }} - {{ application.job.location }}</p>
+        <p class="card-text">Status: <span class="badge bg-{% if application.status == 'accepted' %}success{% elif application.status == 'rejected' %}danger{% else %}secondary{% endif %}">{{ application.status|title }}</span></p>
+        <p class="card-text"><small class="text-muted">Applied on {{ application.applied_at|date:"M d, Y" }}</small></p>
+        {% if application.cover_letter %}
+        <h5>Cover Letter</h5>
+        <p>{{ application.cover_letter }}</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
