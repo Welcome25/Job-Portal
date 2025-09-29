@@ -9,7 +9,7 @@ db.sqllite3
 4.To migrate the database open terminal in 
 project directory and type
 
-5.python manage.py makemigrations
+python manage.py makemigrations
 python manage.py migrate
 
 6.create administrator
