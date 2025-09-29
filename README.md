@@ -1,20 +1,20 @@
-Job Portal using Python -Django
+1.Job Portal using Python -Django
 
-Install requirements
+2.Install requirements
 pip install -r requirements.txt
 
-Database
+3.Database
 db.sqllite3
 
-To migrate the database open terminal in 
+4.To migrate the database open terminal in 
 project directory and type
 
-python manage.py makemigrations
+5.python manage.py makemigrations
 python manage.py migrate
 
-create administrator
+6.create administrator
 python manage.py createsuperuser
 
-Run the server
+7.Run the server
 python manage.py runserver
 
