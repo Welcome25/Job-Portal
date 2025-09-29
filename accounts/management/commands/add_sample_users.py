@@ -11,8 +11,8 @@ class Command(BaseCommand):
             {
                 'username': 'employer1',
                 'email': 'employer1@example.com',
-                'first_name': 'John',
-                'last_name': 'Doe',
+                'first_name': 'sri',
+                'last_name': 'ram',
                 'user_type': 'employer',
                 'company': 'Tech Corp',
                 'phone': '1234567890',
@@ -20,8 +20,8 @@ class Command(BaseCommand):
             {
                 'username': 'jobseeker1',
                 'email': 'jobseeker1@example.com',
-                'first_name': 'Jane',
-                'last_name': 'Smith',
+                'first_name': 'iswarya',
+                'last_name': 'vasan',
                 'user_type': 'jobseeker',
                 'phone': '0987654321',
             },
@@ -38,3 +38,4 @@ class Command(BaseCommand):
                 self.stdout.write(self.style.SUCCESS(f"Created user: {user.username}"))
             else:
                 self.stdout.write(f"User already exists: {user.username}")
+
